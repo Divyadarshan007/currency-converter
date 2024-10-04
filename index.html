@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Currency Converter</h1>
+    <div>
+        <div class="user-input">
+            <div class="d-flex align-items-center gap-5 mb-5">
+                <div class="inr-input d-flex gap-2 align-items-center">
+                    <label class="one">Inr</label>
+                    <input type="number" class="form-control rupee">
+                </div>
+                <div class="arrow">
+                    <i class="bi bi-arrow-left-right"></i>
+                </div>
+                <div class="usd-input d-flex gap-2 align-items-center">
+                    <input type="number" class="form-control dollar">
+                    <label class="two">usd</label>
+                </div>
+            </div>
+            <div>
+                <h3>answer</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $n = 2;
+            $('.arrow').on('click', function () {
+                if ($n % 2 == 0) {
+                    $('.one').text('Usd');
+                    $('.two').text('Inr');
+                    $n++;
+                } else {
+                    $('.one').text('Inr');
+                    $('.two').text('Usd');
+                    $n++;
+                }
+                $temp = $('.inr-input input').val();
+                $('.inr-input input').val($('.usd-input input').val());
+                $('.usd-input input').val($temp);
+
+            });
+            $('.inr-input input').on('input', function () {
+                var $sum = $n % 2 == 0 ? 0.012 * $(this).val() : 84 * $(this).val();
+                console.log($sum, $(this).val());
+                $('.dollar').val($sum);
+            });
+            $('.usd-input input').on('input', function () {
+                var $sum1 = $n % 2 == 0 ? 84 * $(this).val() : 0.012 * $(this).val();
+                console.log($sum1, $(this).val());
+                $('.rupee').val($sum1);
+            });
+        })
+    </script>
+</body>
+
+</html>
