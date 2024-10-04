@@ -8,19 +8,26 @@
 }
 body{
     height: 100vh;
-    background-color: antiquewhite;
+    background-image: url('../images/mountain-7011121_1280.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1{
     font-size: 120px;
     text-align: center;
+    padding-bottom:30px ;
 }
 .user-input{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    gap: 30px;
 }
 .inr-input label{
     font-size: 24px;
